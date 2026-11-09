@@ -29,7 +29,7 @@ $('threshold-range').addEventListener('input',()=>renderThreshold(false));
 $('reset-threshold').addEventListener('click',()=>renderThreshold(true));
 $('matrix-mode').addEventListener('change',renderMatrix);
 renderThreshold(true);
-const figures={association:['健康行为调整后优势比及95%置信区间','无休闲运动的调整后 OR 为 1.427（95% CI：1.358–1.500）。','横断面关联，需要时间视角','吸烟和饮酒的部分关联方向，可能受到确诊后的戒烟、饮酒减少及未测量因素影响。调查记录的是近期行为与既往确诊状态，不能据此推断行为改变的干预效果。'],missingness:['结局明确样本的变量缺失比例','收入缺失 17.96%，蔬菜频次缺失 11.60%，水果频次缺失 9.94%。','缺失，改变了分析人群','完整案例保留 71.66% 的结局明确记录。纳入与排除样本的加权阳性比例分别为10.89%和10.51%；比例接近不能排除行为分布及关联结构的选择差异。'],age:['不同年龄组自报糖尿病加权比例','完整案例中，年龄组之间的加权自报糖尿病比例有明显差异。','年龄提供了基础区分信息','年龄在所有模型中按13个类别进入，未把类别编号视为等距连续变量。最高年龄组的回落还可能涉及出生队列、诊断机会及存活选择。']};
+const figures={association:['健康行为调整后优势比及95%置信区间','无休闲运动的调整后 OR 为 1.427（95% CI：1.358–1.500）。','行为与确诊的时间顺序','问卷同时记录近期行为与既往确诊状态。确诊后的戒烟、饮酒减少和活动改变，是解释横断面关联方向时需要考虑的因素。'],missingness:['结局明确样本的变量缺失比例','收入缺失 17.96%，蔬菜频次缺失 11.60%，水果频次缺失 9.94%。','完整案例保留比例','完整案例占结局明确且权重有效记录的 71.66%。纳入与排除样本的加权阳性比例分别为 10.89% 和 10.51%。'],age:['不同年龄组自报糖尿病加权比例','完整案例中，年龄组之间的加权自报糖尿病比例有明显差异。','年龄提供了基础区分信息','年龄在所有模型中按 13 个类别编码。图中各点表示相应年龄组的加权自报糖尿病比例。']};
 document.querySelectorAll('[data-figure]').forEach(button=>button.addEventListener('click',()=>{
  const name=button.dataset.figure;const v=figures[name];
  document.querySelectorAll('[data-figure]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
